@@ -11,11 +11,11 @@ class StartButton extends StatelessWidget {
         foregroundColor: Colors.purpleAccent,
         side: BorderSide(color: Colors.white, width: 1),
       ),
-      icon: Icon(
+      icon: const Icon(
         Icons.arrow_right_alt,
         size: 24.0,
       ),
-      label: Text('Start Quiz'),
+      label: const Text('Start Quiz'),
     );
   }
 }
