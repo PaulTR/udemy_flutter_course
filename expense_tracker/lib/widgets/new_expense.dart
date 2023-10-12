@@ -15,6 +15,7 @@ class _NewExpenseState extends State<NewExpense> {
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
   DateTime? _selectedDate;
+  Category _selectedCategory = Category.leisure;
 
   void _presentDatePicker() async {
     final now = DateTime.now();
@@ -29,6 +30,32 @@ class _NewExpenseState extends State<NewExpense> {
     setState(() {
       _selectedDate = pickedDate;
     });
+  }
+
+  void _submitExpenseData() {
+    final enteredAmount = double.tryParse(_amountController.text);
+    final amountIsValid = enteredAmount != null && enteredAmount >= 0.0;
+
+    if( _titleController.text.trim().isEmpty 
+        || !amountIsValid
+        || _selectedDate == null ) {
+      showDialog(
+        context: context, 
+        builder: (context) => AlertDialog(
+            icon: const Icon(Icons.error),
+            title: const Text("Invalid input!"),
+            content: const Text("Please make sure you are using a valid title, amount, date, and category."),
+            actions: [
+              TextButton(onPressed: 
+              () {
+                Navigator.pop(context);
+              }, child: const Text("OK"))
+            ],
+          ),
+      );
+      
+      return;
+    }
   }
 
   @override
@@ -68,7 +95,7 @@ class _NewExpenseState extends State<NewExpense> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text( _selectedDate == null ? "No date selected" : formatter.format(_selectedDate!!)),
+                    Text( _selectedDate == null ? "No date selected" : formatter.format(_selectedDate!)),
                     IconButton(onPressed: _presentDatePicker, 
                       icon: Icon(Icons.calendar_month)
                     )
@@ -80,16 +107,32 @@ class _NewExpenseState extends State<NewExpense> {
           const SizedBox(height: 16),
           Row(
             children: [
+              DropdownButton(
+                value: _selectedCategory,
+                items: Category.values.map(
+                  (category) => DropdownMenuItem(child: Text(category.name.toUpperCase()), value: category)).toList(), 
+                onChanged: (value) {
+                  if( value == null ) {
+                    return;
+                  }
+
+                  setState(() {
+                    _selectedCategory = value;
+                  });
+                }
+              ),
+              const Spacer(),
               TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
                   child: const Text('Cancel'),
               ),
-              ElevatedButton(
+              ElevatedButton( // Save Expense button
                   onPressed: () {
                     print(_titleController.text);
                     print(_amountController.text);
+                    _submitExpenseData();
                   },
                   child: const Text('Save Expense'),
                 ),
