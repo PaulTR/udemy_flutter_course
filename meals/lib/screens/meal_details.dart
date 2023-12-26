@@ -18,14 +18,18 @@ class MealDetailsScreen extends StatelessWidget {
               onPressed: () {
                 onToggleFavorite(meal);
               },
-              icon: Icon(Icons.star))
+              icon: const Icon(Icons.star))
         ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Image.network(meal.imageUrl,
-                height: 300, width: double.infinity, fit: BoxFit.cover),
+            Image.network(
+              meal.imageUrl,
+              height: 300,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
             const SizedBox(
               height: 14,
             ),
