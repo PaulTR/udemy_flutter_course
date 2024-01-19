@@ -18,12 +18,6 @@ migration:
     - platform: android
       create_revision: 476aa717cd342d11e16439b71f4f4c9209c50712
       base_revision: 476aa717cd342d11e16439b71f4f4c9209c50712
-    - platform: ios
-      create_revision: 476aa717cd342d11e16439b71f4f4c9209c50712
-      base_revision: 476aa717cd342d11e16439b71f4f4c9209c50712
-    - platform: macos
-      create_revision: 476aa717cd342d11e16439b71f4f4c9209c50712
-      base_revision: 476aa717cd342d11e16439b71f4f4c9209c50712
 
   # User provided section
 

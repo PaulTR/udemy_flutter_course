@@ -50,7 +50,7 @@ class _LocationInputState extends State<LocationInput> {
   }
 
   Future<void> _getCurrentLocation() async {
-    Location location = new Location();
+    Location location = Location();
 
     bool serviceEnabled;
     PermissionStatus permissionGranted;

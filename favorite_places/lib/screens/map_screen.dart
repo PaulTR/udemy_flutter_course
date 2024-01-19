@@ -33,7 +33,7 @@ class _MapScreenState extends State<MapScreen> {
               onPressed: () {
                 Navigator.of(context).pop(_pickedLocation);
               },
-              icon: Icon(Icons.save),
+              icon: const Icon(Icons.save),
             )
         ],
       ),
