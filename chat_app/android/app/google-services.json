@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "376899914736",
+    "firebase_url": "https://ptruiz-flutter-learning-default-rtdb.firebaseio.com",
+    "project_id": "ptruiz-flutter-learning",
+    "storage_bucket": "ptruiz-flutter-learning.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376899914736:android:957ab8092d948c4188eb35",
+        "android_client_info": {
+          "package_name": "com.example.chat_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_gMSzdYX4oh1quRkC-Km9JQ7Vp3vfJ6U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
