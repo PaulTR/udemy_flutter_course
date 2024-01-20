@@ -13,6 +13,7 @@ class ChatScreen extends StatelessWidget {
           IconButton(
             onPressed: () {
               FirebaseAuth.instance.signOut();
+              // Don't need to pop because the stream in main.dart will handle screens
             },
             icon: Icon(
               Icons.exit_to_app,
